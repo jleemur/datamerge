@@ -11,6 +11,7 @@ public class Record {
   private long packetsServiced; // e.g. 13
   private long maxHoleSize; // e.g. 11
 
+  /** Create a new Record */
   public Record(
       String clientAddress,
       String clientGUID,
@@ -30,6 +31,7 @@ public class Record {
     this.maxHoleSize = maxHoleSize;
   }
 
+  /** Create a new Record */
   public Record(
       String clientAddress,
       String clientGUID,
@@ -49,19 +51,39 @@ public class Record {
     this.maxHoleSize = maxHoleSize;
   }
 
+  /**
+   * Get request-time for a Record
+   *
+   * @return this Record's request-time
+   */
   public String getRequestTime() {
     return requestTime;
   }
 
+  /**
+   * Get service-guid for a Record
+   *
+   * @return this Record's service-guid
+   */
   public String getServiceGUID() {
     return serviceGUID;
   }
 
+  /**
+   * Check if Record is valid
+   *
+   * @return this Record's validity
+   */
   public Boolean isValid() {
     if (packetsServiced != 0) return true;
     return false;
   }
 
+  /**
+   * Convert a Record to an array to easily write to a CSV file
+   *
+   * @return this Record as a CSV entry
+   */
   public String[] toCSV() {
     String[] csv = new String[8];
     csv[0] = clientAddress;

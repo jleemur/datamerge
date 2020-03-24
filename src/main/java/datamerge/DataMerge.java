@@ -14,6 +14,7 @@ import java.util.List;
 public class DataMerge {
   private List<Record> records = new ArrayList<>();
 
+  /** Create a new DataMerge Object with a list of RecordParser's */
   public DataMerge(RecordParser... parsers) {
     // Create Records, add them to list
     for (RecordParser p : parsers) {
@@ -21,6 +22,11 @@ public class DataMerge {
     }
   }
 
+  /**
+   * Run this DataMerge to print service-guid map, and write final report (sorted) to a file
+   *
+   * @param fileOut Location to write final report
+   */
   public void run(String fileOut) {
     // Sort all records by request time
     records.sort(
@@ -34,6 +40,7 @@ public class DataMerge {
     writeCSVReport(fileOut);
   }
 
+  /** Map this DataMerge's associated records to a service-guid, and print a summary */
   private void printRecordsPerServiceGUID() {
     HashMap<String, Integer> recordsPerServiceGUID = new HashMap<String, Integer>();
     for (Record r : records) {
@@ -54,6 +61,11 @@ public class DataMerge {
             });
   }
 
+  /**
+   * Write this DataMerge's records to a file
+   *
+   * @param filePath Location to write final report
+   */
   private void writeCSVReport(String filePath) {
     File file = new File(filePath);
     try (FileWriter outputfile = new FileWriter(file);

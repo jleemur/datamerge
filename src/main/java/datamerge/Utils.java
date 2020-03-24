@@ -7,9 +7,16 @@ import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Map;
 
+/** Utils class for generic methods */
 public class Utils {
   private Utils() {}
 
+  /**
+   * Convert an epoch timestamp to a date `yyyy-MM-dd HH:mm:ss z`
+   *
+   * @param ms Epoch timestamp
+   * @return Formatted date
+   */
   public static String epochToDate(long ms) {
     // input e.g. 1467175919322L
     DateTimeFormatter dtf =
@@ -17,11 +24,15 @@ public class Utils {
     return dtf.format(Instant.ofEpochMilli(ms));
   }
 
+  /**
+   * Convert a formatted date `yyyy-MM-dd HH:mm:ss z` to GMT
+   *
+   * @param date Formatted date
+   * @return Formatted date in GMT
+   */
   public static String timezoneToGMT(String date) {
     // input e.g. "2016-06-29 07:22:30 ADT"
     // Since ADT is not a part of ZoneId, creating a map for Canadian timezones
-    // https://stackoverflow.com/questions/44811282/java-how-to-get-list-of-time-zone-id-s-for-the-given-time-zone-abbreviation
-    // https://www.timetemperature.com/abbreviations/canada_time_zone_abbreviations.shtml
     Map<String, String> canadaTimezoneMap =
         Map.ofEntries(
             Map.entry("NST", "-0330"),
@@ -50,7 +61,7 @@ public class Utils {
     int minute = Integer.parseInt(hms[1]);
     int second = Integer.parseInt(hms[2]);
 
-    // Setup LocalDateTime object
+    // Setup LocalDateTime Object
     LocalDateTime localTime = LocalDateTime.of(year, month, day, hour, minute, second);
 
     // Convert to ZonedDateTime

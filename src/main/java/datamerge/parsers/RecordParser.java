@@ -3,6 +3,7 @@ package datamerge.parsers;
 import datamerge.Record;
 import java.util.List;
 
+/** Interface for RecordParser */
 public interface RecordParser {
   public final String CLIENT_ADDRESS_NAME = "client-address";
   public final String CLIENT_GUID_NAME = "client-guid";
@@ -13,5 +14,6 @@ public interface RecordParser {
   public final String PACKETS_SERVICED_NAME = "packets-serviced";
   public final String MAX_HOLE_SIZE_NAME = "max-hole-size";
 
+  /** Convert a RecordParser file to a List of Record's */
   public List<Record> toRecord();
 }
