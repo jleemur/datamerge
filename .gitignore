@@ -1,7 +1,8 @@
 src/main/resources/*
 
 ## maven
-target/
+target/*
+!target/datamerge-1.0-SNAPSHOT-shaded.jar
 pom.xml.tag
 pom.xml.releaseBackup
 pom.xml.versionsBackup
