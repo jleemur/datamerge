@@ -61,4 +61,17 @@ public class Record {
     if (packetsServiced != 0) return true;
     return false;
   }
+
+  public String[] toCSV() {
+    String[] csv = new String[8];
+    csv[0] = clientAddress;
+    csv[1] = clientGUID;
+    csv[2] = requestTime;
+    csv[3] = serviceGUID;
+    csv[4] = Long.toString(retriesRequest);
+    csv[5] = Long.toString(packetsRequested);
+    csv[6] = Long.toString(packetsServiced);
+    csv[7] = Long.toString(maxHoleSize);
+    return csv;
+  }
 }
