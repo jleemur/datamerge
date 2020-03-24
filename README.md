@@ -10,7 +10,18 @@ Additionally, the application should print a summary showing the number of recor
 
 Please provide source, documentation on how to run the program and an explanation on why you chose the tools/libraries used.
 
-### Build Requirements
+### How to run
+
+```
+java -cp target/datamerge-1.0-SNAPSHOT.jar datamerge.App
+```
+
+```
+maven test
+maven package
+```
+
+### Build requirements
 
 ```
 JDK 13.0.2
