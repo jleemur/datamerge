@@ -56,3 +56,11 @@ I learned time zone ids aren't standardized, so Java doesn't have a clean way to
 I found a list of Canadian time zones and created a custom map to override java.time.ZoneId (https://www.timetemperature.com/abbreviations/canada_time_zone_abbreviations.shtml)
 
 I convert all time zones to GMT before outputting them
+
+### Potential improvements
+- Adding javadocs comments and generating them using http://maven.apache.org/plugins/maven-javadoc-plugin/
+- Create a class for the custom timestamp used in data files `yyyy-MM-dd HH:mm:ss z`
+- Injest stdin to get a list of files to parse, map them to a RecordParser
+- Optimizations
+    - Look into performance of RecordParser's
+    - In DataMerge.run(), reduce the amount of times I iterate through Record's
